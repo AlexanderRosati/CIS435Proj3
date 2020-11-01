@@ -38,7 +38,7 @@ if(isset($_POST['last_name_search'])){
     <td> <?php echo $customer['city']; ?> </td>
     <td> 
         <form action="modify_customer.php" method="post">
-            <input type="hidden" name="customerID" value= "<?php echo $customer['customerID'] ?>">
+            <input type="hidden" name="customerID" value= "<?php echo $customer['customerID']; ?>">
             <input type="submit" value="Select">
          </form>
     </td>
