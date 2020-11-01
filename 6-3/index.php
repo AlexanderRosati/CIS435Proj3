@@ -25,7 +25,7 @@ if(isset($_POST['last_name_search'])){
     $connection = new PDO($dsn, $user);
     $connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
    
-    $query = 'SELECT firstName, lastName, email, city FROM customers WHERE lastName LIKE :last_name';
+    $query = 'SELECT * FROM customers WHERE lastName LIKE :last_name';
     $execute_query= $connection->prepare($query);
     $execute_query->execute(['last_name'=>$lastname]);
 
@@ -36,7 +36,12 @@ if(isset($_POST['last_name_search'])){
     <td> <?php echo $customer['firstName'].' '.$customer['lastName']; ?> </td>
     <td> <?php echo $customer['email']; ?>  </td>
     <td> <?php echo $customer['city']; ?> </td>
-    <td> <?php echo ' '; ?> </td>
+    <td> 
+        <form action="modify_customer.php" method="post">
+            <input type="hidden" name="customerID" value= "<?php echo $customer['customerID'] ?>">
+            <input type="submit" value="Select">
+         </form>
+    </td>
     </tr>
 
     <?php } }?>
