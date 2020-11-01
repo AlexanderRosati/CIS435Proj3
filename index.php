@@ -23,5 +23,5 @@
     </ul>
     
     </nav>
-</section>
+</main> <!-- I think he meant main here instead of </section> -->
 <?php include 'view/footer.php'; ?>
