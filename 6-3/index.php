@@ -20,9 +20,10 @@
 <?php
 if(isset($_POST['last_name_search'])){
     $dsn = 'mysql:host=localhost;dbname=tech_support';
-    $user ='root';
+    $user ='ts_user';
+    $password ='pa55word';
     $lastname= htmlspecialchars($_POST['last_name_search']).'%';
-    $connection = new PDO($dsn, $user);
+    $connection = new PDO($dsn, $user, $password);
     $connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
    
     $query = 'SELECT * FROM customers WHERE lastName LIKE :last_name';
