@@ -5,7 +5,7 @@
 <head>
     <title>SportsPro Technical Support</title>
     <link rel="stylesheet" type="text/css"
-          href="main.css">
+          href="/CIS435Proj3/main.css">
 </head>
 
 <!-- the body section -->
@@ -15,7 +15,7 @@
     <p>Sports management software for the sports enthusiast</p>
     <nav>
         <ul>
-            <li><a href="/index.php">Home</a></li>
+            <li><a href="/CIS435Proj3">Home</a></li>
         </ul>
     </nav>
 </header>
