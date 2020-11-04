@@ -9,6 +9,7 @@
     if (!isset($_SESSION['USER TYPE']) || $_SESSION['USER TYPE'] != 'admin') {
 	    echo '<script>alert(\'You are not authorized to use this application!\');'
             . 'window.location=\'http://localhost/CIS435Proj3\';</script>';
+	    exit();
     }
 ?>
 

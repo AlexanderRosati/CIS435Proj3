@@ -1,4 +1,13 @@
 <?php
+    session_start();
+    
+    //make sure user is authorized to use page
+    if (!isset($_SESSION['USER TYPE']) || $_SESSION['USER TYPE'] != 'admin') {
+        echo '<script>alert(\'You are not authorized to use this application!\');'
+             . 'window.location = \'/CIS435Proj3\';</script>';
+	exit();
+    }
+
     if(isset($_POST['submit'])) {
 	//get access to db    
 	include('../model/database.php');
