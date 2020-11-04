@@ -126,6 +126,11 @@ textarea {
     width: 15em;
 }
 
+label.fixed-width {
+    display: inline-block;
+    width: 200px;
+}
+
 #aligned {
     margin: .5em 0 2em;
 }

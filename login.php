@@ -89,10 +89,11 @@
                 <label for="technician">Technician</label><br>
                 <input type="radio" id="admin" name="user_type" value="admin">
 		<label for="admin">Admin</label><br><br>
-                <label for="user_name_or_email">Username/Email: &nbsp;&nbsp;&nbsp;</label>
+                <label class="fixed-width" for="user_name_or_email">Username/Email:</label>
 		<input type="text" name="username_or_email" id="user_name_or_email" placeholder="Enter Username/Email"><br><br>
-                <label for="pass">Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <label class="fixed-width" for="pass">Password:</label>
 		<input type="password" name="pass" id="pass" placeholder="Enter Password"><br><br>
+                <label class="fixed-width">&nbsp;</label>
                 <input type="submit" name="submit" value="Login">
             </form>
         <p class="error"><?php echo $err_msg; ?></p>
