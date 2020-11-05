@@ -37,8 +37,10 @@
 
 	// display success message
 	if ($pre_stmt->rowCount() == 1) {
+	    echo '<main>';
             echo '<h1>Create Incident</h1>';
 	    echo '<p>This incident was added to our database</p>';
+	    echo '</main>';
 	    exit();
 	} else {
             echo 'The incident was <em>not</em> created. :(';
@@ -119,6 +121,12 @@
 	if (title === '' || description === '') {
             let errMsg = document.getElementById('err_msg');
             errMsg.innerText = 'You must fill in a title and a description.';
+        } else if (title.length > 50) {
+            let errMsg = document.getElementById('err_msg');
+            errMsg.innerText = 'Title cannot be more than 50 characters';
+	} else if (description.length > 2000) {
+            let errMsg = document.getElementById('err_msg');
+            errMsg.innerText = 'Description cannot be more than 2000 characters';
 	} else {
             form.submit();
 	}

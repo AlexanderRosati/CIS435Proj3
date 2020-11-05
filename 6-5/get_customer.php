@@ -15,7 +15,7 @@
     if(isset($_GET['err']) && $_GET['err'] == 'true') {
         $err_msg = 'Enter valid email.';
     } else if (isset($_GET['notfound']) && $_GET['notfound'] == 'true') {
-       $err_msg = 'Email not found'; 
+       $err_msg = 'No customer with this email.'; 
     } else if (isset($_GET['noproducts']) && $_GET['noproducts'] == 'true') {
         $err_msg = 'The customer has no products';
     }
