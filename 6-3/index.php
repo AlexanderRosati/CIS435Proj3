@@ -18,7 +18,7 @@
  
 </tr>
 <?php
-if(isset($_POST['last_name_search'])){
+if(isset($_POST['last_name_search'])):
     $dsn = 'mysql:host=localhost;dbname=tech_support';
     $user ='ts_user';
     $password ='pa55word';
@@ -32,7 +32,7 @@ if(isset($_POST['last_name_search'])){
 
     $searched_customers = $execute_query->fetchAll();
     
-    foreach($searched_customers as $customer){  ?>
+    foreach($searched_customers as $customer):  ?>
     <tr>
     <td> <?php echo $customer['firstName'].' '.$customer['lastName']; ?> </td>
     <td> <?php echo $customer['email']; ?>  </td>
@@ -45,7 +45,7 @@ if(isset($_POST['last_name_search'])){
     </td>
     </tr>
 
-    <?php } }?>
+    <?php endforeach; endif;?>
 </table>
 
 
