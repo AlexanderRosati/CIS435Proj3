@@ -23,16 +23,16 @@
 
     <form action="modify_customer.php" method="post">
                 
-                <label for="first_name"> First Name: </label> <input type="text" name="first_name" id="first_name"><br><br>
-                <label for="last_name"> Last Name: </label><input type="text" name="last_name" id="last_name"><br><br>
-                <label for="address"> Address: </label><input type="text" name="address" id="address"><br><br>
-                <label for="city"> City: </label><input type="text" name="city" id="city"><br><br>
-                <label for="state"> State: </label><input type="text" name="state" id="state"><br><br>
-                <label for="postal_code"> Postal Code: </label><input type="text" name="postal_code" id="postal_code"><br><br>
-                <label for="country_code"> Country Code: </label><input type="text" name="country_code" id="postal_code"><br><br>
-                <label for= "phone"> Phone: </label><input type="text" name="phone" id="phone"><br><br>
-                <label for="email"> Email: </label><input type="text" name="email" id="email"><br><br>
-                <label for="password"> Password: </label><input type="text" name="password" id="password"><br><br>
+                <label class= "fixed-width" for="first_name"> First Name: </label> <input type="text" name="first_name" id="first_name"><br><br>
+                <label class= "fixed-width" for="last_name"> Last Name: </label><input type="text" name="last_name" id="last_name"><br><br>
+                <label class= "fixed-width" for="address"> Address: </label><input type="text" name="address" id="address"><br><br>
+                <label class= "fixed-width" for="city"> City: </label><input type="text" name="city" id="city"><br><br>
+                <label class= "fixed-width" for="state"> State: </label><input type="text" name="state" id="state"><br><br>
+                <label class= "fixed-width" for="postal_code"> Postal Code: </label><input type="text" name="postal_code" id="postal_code"><br><br>
+                <label class= "fixed-width" for="country_code"> Country Code: </label><input type="text" name="country_code" id="postal_code"><br><br>
+                <label class= "fixed-width" for= "phone"> Phone: </label><input type="text" name="phone" id="phone"><br><br>
+                <label class= "fixed-width" for="email"> Email: </label><input type="text" name="email" id="email"><br><br>
+                <label class= "fixed-width" for="password"> Password: </label><input type="text" name="password" id="password"><br><br>
     </form>
 
 
