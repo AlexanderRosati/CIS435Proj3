@@ -158,7 +158,7 @@
                 <label class= "fixed-width" for="email"> Email: </label><input type="text" name="email" id="email" value = "<?php echo $email; ?>"><br><br>
                 <label class= "fixed-width" for="password"> Password: </label><input type="text" name="password" id="password" value = "<?php echo $user_password; ?>"><br><br>
                 <input type="hidden" name="customerID" value= "<?php echo $customer_id; ?>">
-                <input class= "fixed-width" type="submit" name= "submit" value="Update Customer">
+                <label class= "fixed-width"> &nbsp</label><input type="submit" name= "submit" value="Update Customer">
     </form>
     <p class = "error"> <?php echo $error_message ?></p>
     
