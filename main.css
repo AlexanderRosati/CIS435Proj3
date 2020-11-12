@@ -154,3 +154,6 @@ label.fixed-width {
     display: inline-block;
     width: 200px;
 }
+input.fixed-width {
+    margin-left: 200px;
+}

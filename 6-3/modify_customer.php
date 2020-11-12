@@ -1,5 +1,10 @@
     <?php include '../view/header.php'; 
-   
+        if (!isset($_SESSION['USER TYPE']) || $_SESSION['USER TYPE'] != 'admin') {
+            echo '<script>alert(\'You are not authorized to access this page\');'
+                 . 'window.location = \'/CIS435Proj3\';</script>';
+        exit();
+    
+        }
        if(isset($_POST['submit'])):
        
             $customer_id=$firstName=$lastName=$address=$city=$state=$postalCode=$countryCode=$phone=$email=$user_password="";
@@ -67,7 +72,6 @@
 
                 
                 foreach($customer_emails as $single_email){
-                   
                     if($single_email['email'] == $email && $customer_id!=$single_email['customerID']){
                         $error_message=" This email is already taken!";
                         break;
@@ -105,7 +109,7 @@
                                            "customerID"=>$customer_id]);
 
 
-                    header('Location: index.php'); 
+                    header('Location: /CIS435Proj3/6-3/'); 
                   
                 }
 
@@ -143,7 +147,7 @@
 
     <form action="<?php $_SERVER['PHP_SELF']?>" method="POST">
                 
-                <label class= "fixed-width" for="first_name"> First Name: </label> <input type="text" name="first_name" id="first_name" value = "<?php echo $firstName; ?>"  ><br><br>
+                <label class= "fixed-width" for="first_name"> First Name: </label><input type="text" name="first_name" id="first_name" value = "<?php echo $firstName; ?>"  ><br><br>
                 <label class= "fixed-width" for="last_name"> Last Name: </label><input type="text" name="last_name" id="last_name" value = "<?php echo $lastName; ?>"><br><br>
                 <label class= "fixed-width" for="address"> Address: </label><input type="text" name="address" id="address" value = "<?php echo $address; ?>"><br><br>
                 <label class= "fixed-width" for="city"> City: </label><input type="text" name="city" id="city" value = "<?php echo $city; ?>"><br><br>
@@ -154,10 +158,13 @@
                 <label class= "fixed-width" for="email"> Email: </label><input type="text" name="email" id="email" value = "<?php echo $email; ?>"><br><br>
                 <label class= "fixed-width" for="password"> Password: </label><input type="text" name="password" id="password" value = "<?php echo $user_password; ?>"><br><br>
                 <input type="hidden" name="customerID" value= "<?php echo $customer_id; ?>">
-                <input type="submit" name= "submit" value="Update Customer">
+                <input class= "fixed-width" type="submit" name= "submit" value="Update Customer">
     </form>
     <p class = "error"> <?php echo $error_message ?></p>
-
+    
+    <a href="/CIS435Proj3/6-3/">Search Customers</a>
+   
+    
 
 
     <?php  endif; ?>
