@@ -40,7 +40,7 @@ if(isset($_POST['last_name_search'])):
     <td> 
         <form action="modify_customer.php" method="post">
             <input type="hidden" name="customerID" value= "<?php echo $customer['customerID']; ?>">
-            <input type="submit" value="Select">
+            <input type="submit"  name= "submit"value="Select">
          </form>
     </td>
     </tr>
