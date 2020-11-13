@@ -16,9 +16,5 @@ if(isset($_POST['submit'])){
     $prep_stmt->execute(['techEmail' => $_POST['techEmail']]);
 }
 
-
-
-
-
 header('Location: technician_list.php');
 ?>
