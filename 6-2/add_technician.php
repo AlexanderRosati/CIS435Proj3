@@ -1,10 +1,10 @@
 <?php
-    //start session
+    
     include('../view/header.php');
 
     $error = "";
 
-
+    // submit info entered
     if(isset($_POST['submit'])){
         $firstName = ($_POST['firstName']);
         $lastName = ($_POST['lastName']);
