@@ -6,22 +6,24 @@
 
     // submit email entered
     if(isset($_POST['submit'])){
-        $custEmail = 'customerLogin';
+        $custEmail = 'email';
         echo $custEmail;
 
-        $query = 'SELECT * FROM technician WHERE email LIKE :email';
+        $query = 'SELECT * FROM customer WHERE email = :email';
 
         $prep_stmt = $db->prepare($query);
         $prep_stmt->execute(['email' => $custEmail]);
 
         $customerResult = $prep_stmt->fetchAll();
 
-        if($customerResult){
+        echo $customerResult->name . '<br>';
+
+        /* if($customerResult){
             header('Location: register_product.php');
         }
         else{
             $error = "A customer with that email address was not found.";
-        }
+        } */
 
     }
 
@@ -40,8 +42,8 @@
 <p>You must login before you can register a product.</p>
 <form method="POST" action="<?php $_SERVER['PHP_SELF']?>">
     <label for="search">Email: </label> 
-    <input type="text" name="email" id="login" placeholder="email">
-    <input type="submit" value="submit"> <br><br>
+    <input type="text" name="customerEmail" id="customerEmail" placeholder="Email">
+    <input name="submit" type="submit" value="Login"> <br><br>
 </form>
 
 
