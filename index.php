@@ -7,7 +7,6 @@
         <li><a href="6-1/product_list.php">Manage Products</a></li>
         <li><a href="6-2/technician_list.php">Manage Technicians</a></li>
         <li><a href="/CIS435Proj3/6-3/">Manage Customers</a></li>
-        <li><a href="under_construction.php">Manage Customers</a></li>
         <li><a href="6-5/get_customer.php">Create Incident</a></li>
         <!--<li><a href="under_construction.php">Assign Incident</a></li>-->
         <!--<li><a href="under_construction.php">Display Incidents</a></li>-->
@@ -20,7 +19,7 @@
 
     <h2>Customers</h2>
     <ul>
-        <li><a href="under_construction.php">Register Product</a></li>
+        <li><a href="6-4/customer_login.php">Register Product</a></li>
     </ul>
     
     </nav>
