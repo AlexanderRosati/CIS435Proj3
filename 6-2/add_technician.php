@@ -10,19 +10,19 @@
         $lastName = ($_POST['lastName']);
         $email = ($_POST['email']);
         $phone = ($_POST['phone']);
-        $password = ($_POST['password']);
+        $passwordTech = ($_POST['password']);
     }
 
     // format the phone number to have hyphens, uses regex
     // inserts '-' at 4th and 8th 
     $formattedPhone = preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "$1-$2-$3", $phone);
 
-    if(!empty($firstName) && !empty($lastName) && !empty($email) && !empty($phone) && !empty($password)){
+    if(!empty($firstName) && !empty($lastName) && !empty($email) && !empty($phone) && !empty($passwordTech)){
         include('../model/database.php');
         $query = 'INSERT INTO technicians (firstname, lastName, email, phone, password)' . 'VALUES (:firstName, :lastName, :email, :phone, :password)';
 
         $prep_stmt = $db->prepare($query);
-        $prep_stmt->execute(['firstName' => $firstName, 'lastName' => $lastName, 'email' => $email, 'phone' => $formattedPhone, 'password' => $password]);
+        $prep_stmt->execute(['firstName' => $firstName, 'lastName' => $lastName, 'email' => $email, 'phone' => $formattedPhone, 'password' => $passwordTech]);
         echo $prep_stmt->rowCount();
         header('Location: technician_list.php');
     }
