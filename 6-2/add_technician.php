@@ -11,23 +11,24 @@
         $email = ($_POST['email']);
         $phone = ($_POST['phone']);
         $passwordTech = ($_POST['password']);
-    }
 
-    // format the phone number to have hyphens, uses regex
-    // inserts '-' at 4th and 8th 
-    $formattedPhone = preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "$1-$2-$3", $phone);
+        // format the phone number to have hyphens, uses regex
+        // inserts '-' at 4th and 8th 
+        $formattedPhone = preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "$1-$2-$3", $phone);
 
-    if(!empty($firstName) && !empty($lastName) && !empty($email) && !empty($phone) && !empty($passwordTech)){
-        include('../model/database.php');
-        $query = 'INSERT INTO technicians (firstname, lastName, email, phone, password)' . 'VALUES (:firstName, :lastName, :email, :phone, :password)';
 
-        $prep_stmt = $db->prepare($query);
-        $prep_stmt->execute(['firstName' => $firstName, 'lastName' => $lastName, 'email' => $email, 'phone' => $formattedPhone, 'password' => $passwordTech]);
-        echo $prep_stmt->rowCount();
-        header('Location: technician_list.php');
-    }
-    else{
-        $error = "Error. One or more data fields were empty!";
+        if(!empty($firstName) && !empty($lastName) && !empty($email) && !empty($phone) && !empty($passwordTech)){
+            include('../model/database.php');
+            $query = 'INSERT INTO technicians (firstname, lastName, email, phone, password)' . 'VALUES (:firstName, :lastName, :email, :phone, :password)';
+    
+            $prep_stmt = $db->prepare($query);
+            $prep_stmt->execute(['firstName' => $firstName, 'lastName' => $lastName, 'email' => $email, 'phone' => $formattedPhone, 'password' => $passwordTech]);
+            echo $prep_stmt->rowCount();
+            header('Location: technician_list.php');
+        }
+        else{
+            $error = "Error. One or more data fields were empty!";
+        }
     }
 ?>
 
@@ -41,7 +42,8 @@
         <label class="fixed-width" for="email">Email: </label>
         <input id="email" type="text" name="email" placeholder="Email"></br></br>
         <label class="fixed-width" for="phone">Phone: </label>
-        <input id="phone" type="text" name="phone" placeholder="Phone"></br></br>
+        <input id="phone" type="text" name="phone" placeholder="Phone">
+        </br></br>
         <label class="fixed-width" for="password">Password: </label>
         <input id="password" type="text" name="password" placeholder="Password"></br></br>
         <label class="fixed-width">&nbsp;</label>

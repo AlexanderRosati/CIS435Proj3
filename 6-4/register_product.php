@@ -17,31 +17,47 @@
         else{
             $custID = $currentCustomer['customerID'];
             $registerProduct = ($_POST['productList']);
-            echo $registerProduct;
             $currDate = date('Y-m-d');
     
-            $query = 'INSERT INTO registrations (customerID, productCode, registrationDate) VALUES (:custID, :registerProduct, :currDate)';
-    
-            $prep_stmt = $db->prepare($query);
-            $prep_stmt->execute([
+            $duplicatesQuery = 'SELECT * FROM registrations WHERE customerID=:custID AND productCode=:prodCode';
+
+            $dupe_prep_stmt = $db->prepare($duplicatesQuery);
+            $dupe_prep_stmt->execute([
                 'custID' => $custID,
-                'registerProduct' => $registerProduct,
-                'currDate' => $currDate]);
+                'prodCode' => $registerProduct]);
+
+            // if record exists 
+            if ($dupe_prep_stmt->rowCount() == 1){
+                // if duplicate registration
+                echo '<main>';
+                echo '<h1>Register Product</h1>';
+                echo 'Error. You have already registered the product: '.$registerProduct.'<br><br>';
+                echo '</main>';
+                exit();
+            }
+            else{
+                $query = 'INSERT INTO registrations (customerID, productCode, registrationDate) VALUES (:custID, :registerProduct, :currDate)';
     
-            // display success message
-            echo $prep_stmt->rowCount();
-            if ($prep_stmt->rowCount() == 1) {
-                echo '<main>';
-                echo '<h1>Register Product</h1>';
-                echo '<p>Product {'.$registerProduct.'} was registered succesfully</p>';
-                echo '</main>';
-                exit();
-            } else {
-                echo '<main>';
-                echo '<h1>Register Product</h1>';
-                echo 'The product was <em>not</em> registered.<br><br>';
-                echo '</main>';
-                exit();
+                $prep_stmt = $db->prepare($query);
+                $prep_stmt->execute([
+                    'custID' => $custID,
+                    'registerProduct' => $registerProduct,
+                    'currDate' => $currDate]);
+        
+                // display success message
+                if ($prep_stmt->rowCount() == 1) {
+                    echo '<main>';
+                    echo '<h1>Register Product</h1>';
+                    echo '<p>Product {'.$registerProduct.'} was registered succesfully</p>';
+                    echo '</main>';
+                    exit();
+                } else {
+                    echo '<main>';
+                    echo '<h1>Register Product</h1>';
+                    echo 'The product was <em>not</em> registered.<br><br>';
+                    echo '</main>';
+                    exit();
+                }
             }
         }
        
