@@ -4,7 +4,7 @@
 
     $error = "";
 
-    // submit info entered
+    // store info entered
     if(isset($_POST['submit'])){
         $firstName = ($_POST['firstName']);
         $lastName = ($_POST['lastName']);
