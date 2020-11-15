@@ -2,6 +2,12 @@
     
     include('../view/header.php');
     
+      if (!isset($_SESSION['USER TYPE']) || ( $_SESSION['USER TYPE'] != 'customer' && $_SESSION['USER TYPE'] != 'admin')) {
+        echo '<script>alert(\'You are not authorized to access this page\');'
+             . 'window.location = \'/CIS435Proj3\';</script>';
+     exit();
+     
+     }
     $error = "";
 
     // submit email entered
